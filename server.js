@@ -9,7 +9,8 @@ const apiRoutes         = require('./routes/api.js');
 const runner            = require('./test-runner');
 
 const app = express();
-mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 

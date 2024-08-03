@@ -18,6 +18,7 @@ function fillpuzzle(data) {
   for (let i = 0; i < len; i++) {
     let rowLetter = String.fromCharCode('A'.charCodeAt(0) + Math.floor(i / 9));
     let col = (i % 9) + 1; 
+    // console.log(data[i])
     if (!data[i] || data[i] === ".") {
       document.getElementsByClassName(rowLetter + col)[0].innerText = " ";
       continue;
@@ -42,6 +43,7 @@ async function getSolved() {
     errorMsg.innerHTML = `<code>${JSON.stringify(parsed, null, 2)}</code>`;
     return
   }
+  // console.log(parsed.solution.solution)
   fillpuzzle(parsed.solution)
 }
 
