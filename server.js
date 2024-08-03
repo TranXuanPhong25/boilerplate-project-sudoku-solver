@@ -3,13 +3,13 @@ const express     = require('express');
 const bodyParser  = require('body-parser');
 const expect      = require('chai').expect;
 const cors        = require('cors');
-
+const mongoose    = require('mongoose');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const apiRoutes         = require('./routes/api.js');
 const runner            = require('./test-runner');
 
 const app = express();
-
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true });
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use(cors({origin: '*'})); //For FCC testing purposes only
 
